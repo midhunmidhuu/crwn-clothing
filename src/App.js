@@ -1,36 +1,21 @@
 import './categories.styles.scss'
-import CategoriesMenu from './component/categories-menu.component/categories-menu.component';
+import Home from './component/routes/home/home.component';
+import { Route, Routes } from 'react-router-dom';
+import NavigationBar from './component/routes/navigation-bar/navigation-bar.component';
+import ShopPage from './component/routes/shop/shop.component';
+import SignIn from './component/routes/sign-in/sign-in.component';
 
 const App = () => {
-
-  const categories = [
-    {
-      "id": 1,
-      "title": "Hats",
-      "imageUrl": "https://i.ibb.co/cvpntL1/hats.png"
-    },
-    {
-      "id": 2,
-      "title": "Jackets",
-      "imageUrl": "https://i.ibb.co/px2tCc3/jackets.png"
-    },
-    {
-      "id": 3,
-      "title": "Sneakers",
-      "imageUrl": "https://i.ibb.co/0jqHpnp/sneakers.png"
-    },
-    {
-      "id": 4,
-      "title": "Womens",
-      "imageUrl": "https://i.ibb.co/GCCdy8t/womens.png"
-    },
-    {
-      "id": 5,
-      "title": "Mens",
-      "imageUrl": "https://i.ibb.co/R70vBrQ/men.png"
-    }
-  ];
-  return <CategoriesMenu categories={categories}/>
+  return (
+  <Routes>
+    <Route path='/' element={<NavigationBar />}>
+      <Route index element={<Home />} />
+      <Route path='shop' element={<ShopPage/>}/>
+      <Route path='sign-in' element={<SignIn/>}/>
+    </Route>
+  </Routes>
+  )
+  
 }
 
 export default App;
